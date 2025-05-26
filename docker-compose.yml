@@ -4,8 +4,16 @@ services:
     build: ./backend
     ports:
       - "3000:3000"
+    depends_on:
+      - ganache
 
   frontend:
     build: ./frontend
     ports:
       - "8080:80"
+
+  ganache:
+    image: trufflesuite/ganache-cli
+    ports:
+      - "8545:8545"
+    command: ["--accounts", "10", "--defaultBalanceEther", "1000", "--deterministic"]

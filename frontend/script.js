@@ -10,5 +10,5 @@ document.getElementById('voteForm').addEventListener('submit', async (e) => {
   });
 
   const data = await res.json();
-  document.getElementById('result').innerText = `Voto registrado! Hash: ${data.hash}`;
+  document.getElementById('result').innerText = `Voto registrado! Hash: ${data.txHash}`;
 });
