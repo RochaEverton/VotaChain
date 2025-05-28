@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>Histórico de Votos</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <h1>Histórico de Transações (Votos)</h1>
+  <header>
+    <h1>Histórico de Votos e Transações</h1>
+    <p>Votação Segura e Transparente com Blockchain</p>
+  </header>
+
+  <h2 id="contagemVotos">Carregando contagem de votos...</h2>
+
+  <div id="detalheVotos"></div>
+
+  <div id="votosTabela" class="votos-tabela">
+    <div id="votosCandidato1" class="votos-candidato"></div>
+    <div id="votosCandidato2" class="votos-candidato"></div>
+  </div>
+
   <ul id="transactions"></ul>
 
   <a href="index.html">Voltar para votação</a>
 
+  <footer>
+    <p>© Everton Rocha - May 2025.</p>
+  </footer>
+
   <script>
+    async function carregarContagem() {
+      const res = await fetch('http://localhost:3000/api/votes-count');
+      const counts = await res.json();
+      document.getElementById('contagemVotos').innerText =
+        `Candidato 1: ${counts.Candidato_1 || 0} votos | Candidato 2: ${counts.Candidato_2 || 0} votos`;
+
+      document.getElementById('votosCandidato1').innerHTML =
+        `<strong>Candidato 1</strong><br><span style="font-size:2em">${counts.Candidato_1 || 0}</span> voto(s)`;
+      document.getElementById('votosCandidato2').innerHTML =
+        `<strong>Candidato 2</strong><br><span style="font-size:2em">${counts.Candidato_2 || 0}</span> voto(s)`;
+    }
+
+    carregarContagem();
+
+
     async function carregarTransacoes() {
       const res = await fetch('http://localhost:3000/api/transactions');
       const txs = await res.json();
@@ -19,12 +53,31 @@
       const ul = document.getElementById('transactions');
       txs.forEach(tx => {
         const li = document.createElement('li');
-        li.innerHTML = `Hash: <code>${tx.hash}</code> | de: ${tx.from} para: ${tx.to}`;
+        if (tx.hash) {
+          li.innerHTML = `Hash: <code>${tx.hash}</code> | carteira: <strong>${tx.walletAddress || tx.from}</strong> | voto: <strong>${tx.choice || '-'}</strong> | data: ${tx.timestamp}`;
+        } else if (tx.walletAddress && tx.choice) {
+          li.innerHTML = `Voto de <strong>${tx.walletAddress}</strong> em <strong>${tx.choice}</strong> às ${tx.timestamp}`;
+        }
         ul.appendChild(li);
       });
     }
 
     carregarTransacoes();
+
+
+    async function carregarDetalheVotos() {
+      const res = await fetch('http://localhost:3000/api/votes-detail');
+      const detail = await res.json();
+      const div = document.getElementById('detalheVotos');
+      div.innerHTML = '';
+      Object.entries(detail).forEach(([candidato, info]) => {
+        div.innerHTML += `<h3>${candidato}: ${info.total} voto(s)</h3>`;
+        div.innerHTML += `<ul>${info.carteiras.map(addr => `<li>${addr}</li>`).join('')}</ul>`;
+      });
+    }
+
+    carregarDetalheVotos();
   </script>
 </body>
+
 </html>

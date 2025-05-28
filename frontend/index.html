@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>VotaChain</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <header>
     <h1>VotaChain</h1>
     <p>Votação Segura e Transparente com Blockchain</p>
   </header>
   <main>
-  <h2>Registre seu voto!</h2>
-  <form id="voteForm">
-    <input type="text" placeholder="Seu ID" id="voterId" required />
-    <select id="choice">
-      <option value="sim">Sim</option>
-      <option value="nao">Não</option>
-    </select>
-    <button type="submit">Votar</button>
-  </form>
-  <div id="result"></div>
-  <a href="historico.html">Ver histórico de votos</a>
+    <div id="walletBox"></div>
+    <h2>Registre seu Voto!</h2>
+    <form id="voteForm">
+      <h2>Escolha seu candidato:</h2>
+      <button type="submit" name="choice" value="Candidato_1">Candidato 1</button>
+      <button type="submit" name="choice" value="Candidato_2">Candidato 2</button>
+    </form>
+    <div id="result"></div>
+    <a href="historico.html">Ver histórico de votos</a>
   </main>
   <footer>
     <p>© Everton Rocha - May 2025.</p>
   </footer>
   <script src="script.js"></script>
 </body>
+
 </html>
