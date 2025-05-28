@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Histórico de Votos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Histórico de Transações (Votos)</h1>
+  <ul id="transactions"></ul>
+
+  <a href="index.html">Voltar para votação</a>
+
+  <script>
+    async function carregarTransacoes() {
+      const res = await fetch('http://localhost:3000/api/transactions');
+      const txs = await res.json();
+
+      const ul = document.getElementById('transactions');
+      txs.forEach(tx => {
+        const li = document.createElement('li');
+        li.innerHTML = `Hash: <code>${tx.hash}</code> | de: ${tx.from} para: ${tx.to}`;
+        ul.appendChild(li);
+      });
+    }
+
+    carregarTransacoes();
+  </script>
+</body>
+</html>

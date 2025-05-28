@@ -6,8 +6,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Conectar ao Ganache
-const web3 = new Web3('http://ganache:8545'); // Nome do container no compose
+// CONEXÃO COM GANACHE
+const web3 = new Web3('http://ganache:8545');
+
+
+let votosRegistrados = [];
 
 app.post('/api/vote', async (req, res) => {
   const { voterId, choice } = req.body;
@@ -23,34 +26,25 @@ app.post('/api/vote', async (req, res) => {
       data: hash
     });
 
-    res.json({ status: 'registrado', txHash: tx.transactionHash });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Falha ao registrar voto' });
-  }
-});
-
-
-app.post('/api/vote', async (req, res) => {
-  const { voterId, choice } = req.body;
-
-  const data = `${voterId}:${choice}`;
-  const hash = web3.utils.sha3(data); // Gera hash usando Keccak256
-
-  try {
-    // Envia transação fictícia para registrar o hash
-    const tx = await web3.eth.sendTransaction({
-      from: account,
-      to: account,
-      value: 0,
-      data: hash
+    // Salvar transação no array global
+    votosRegistrados.push({
+      hash: tx.transactionHash,
+      from: accounts[0],
+      to: accounts[0]
     });
 
     res.json({ status: 'registrado', txHash: tx.transactionHash });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Falha ao registrar voto' });
+    res.status(500).json({ error: 'Erro ao registrar voto' });
   }
 });
 
-app.listen(3000, () => console.log('API ouvindo na porta 3000'));
+// Rota que retorna o array completo
+app.get('/api/transactions', (req, res) => {
+  res.json(votosRegistrados);
+});
+
+app.listen(3000, () => {
+  console.log('API ouvindo na porta 3000');
+});
