@@ -103,7 +103,15 @@ votachain/
 ---
 
 ## Screenshots
+<p align="center">
+  <img src="./shared/images/CarteiraConectada.png" alt="validação" height="200"/>
+   <img src="./shared/images/voto registrado.png" alt="validação" height="200""/>
+</p>
 
+<p align="center">
+  <img src="./shared/images/validação.png" alt="validação" height="200"/>
+   <img src="./shared/images/auditoria.png" alt="validação" height="200""/>
+</p>
 
 
 ---
