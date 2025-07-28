@@ -1,7 +1,9 @@
-# VotaChain
+# Votachain
+Projeto de finalização da Pós Graduação em WEB3.0 pela faculdade Descomplica.
+VotaChain é um projeto que simula a utilização da técnologia blockchain para criação de um sistema de votação digital transparente e seguro.
+O projeto permite que usuários votem de qualquer lugar usando carteiras digitais ex.MetaMask via navegador web.
 
-VotaChain é um sistema de votação digital transparente e seguro, utilizando blockchain (Ethereum/Ganache), Node.js (Express) no backend e uma interface web simples no frontend. O projeto permite que usuários votem usando suas carteiras MetaMask, garantindo autenticidade e auditabilidade dos votos.
-
+![Votachain](./shared/images/voto%20registrado.png)
 ---
 
 ## Funcionalidades
@@ -16,6 +18,9 @@ VotaChain é um sistema de votação digital transparente e seguro, utilizando b
 
 ## Estrutura do Projeto
 
+Blockchain - (Ethereum/Ganache)
+Backend - (Node.js/Express)
+Frontend - Interface web estática (HTML/CSS/JS)
 ```
 votachain/
 ├── backend/         # API Node.js/Express + Web3
@@ -35,8 +40,8 @@ votachain/
 
 ## Pré-requisitos
 
-- [Docker](https://www.docker.com/) e [Docker Compose](https://docs.docker.com/compose/)
-- [MetaMask](https://metamask.io/) instalada no navegador
+- [Docker](https://www.docker.com/)
+- [MetaMask](https://metamask.io/)
 
 ---
 
