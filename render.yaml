@@ -2,7 +2,7 @@ services:
   - type: web
     name: backend
     env: docker
-    repo: https://github.com/RochaEverton/VotaChain/tree/develop
+    repo: https://github.com/RochaEverton/VotaChain
     dockerfilePath: backend/Dockerfile
     plan: free
     branch: develop
@@ -11,7 +11,7 @@ services:
   - type: web
     name: frontend
     env: docker
-    repo: https://github.com/RochaEverton/VotaChain/tree/develop
+    repo: https://github.com/RochaEverton/VotaChain
     dockerfilePath: frontend/Dockerfile
     plan: free
     branch: develop
@@ -20,7 +20,7 @@ services:
   - type: worker
     name: ganache
     env: docker
-    repo: https://github.com/RochaEverton/VotaChain/tree/develop
+    repo: https://github.com/RochaEverton/VotaChain
     dockerfilePath: ganache/Dockerfile
     plan: free
     branch: develop
