@@ -1,7 +1,7 @@
 # Votachain
-Projeto de finalização da Pós Graduação em WEB3.0 pela faculdade Descomplica.
-VotaChain é um projeto que simula a utilização da técnologia blockchain para criação de um sistema de votação digital transparente e seguro.
-O projeto permite que usuários votem de qualquer lugar usando carteiras digitais ex.MetaMask via navegador web.
+Projeto de finalização da Pós Graduação em WEB3.0 pela faculdade Descomplica.<br>
+VotaChain é um projeto que simula a utilização da técnologia blockchain para criação de um sistema de votação digital transparente e seguro.<br>
+O projeto permite que usuários votem de qualquer lugar usando carteiras digitais ex. MetaMask via navegador web.<br>
 
 ![Votachain](./shared/images/voto%20registrado.png)
 ---
@@ -12,15 +12,15 @@ O projeto permite que usuários votem de qualquer lugar usando carteiras digitai
 - **Transparência:** Todos os votos e transações podem ser auditados na página de histórico.
 - **Prevenção de votos duplicados:** Cada carteira pode votar apenas uma vez.
 - **Frontend responsivo:** Interface clara, com destaque para a carteira conectada e mensagens de status.
-- **Ambiente Dockerizado:** Fácil de rodar em qualquer ambiente com Docker.
+- **Ambiente Docker:** Fácil de rodar em qualquer ambiente com Docker.
 
 ---
 
 ## Estrutura do Projeto
 
-Blockchain - (Ethereum/Ganache)
-Backend - (Node.js/Express)
-Frontend - Interface web estática (HTML/CSS/JS)
+- Blockchain - (Ethereum/Ganache).
+- Backend - (Node.js/Express).
+- Frontend - Interface web estática (HTML/CSS/JS).
 ```
 votachain/
 ├── backend/         # API Node.js/Express + Web3
@@ -98,12 +98,12 @@ votachain/
 
 ## Tecnologias utilizadas
 
-- Node.js, Express, Web3.js
-- Ganache (Ethereum local)
-- MetaMask
-- HTML, CSS, JavaScript
-- Docker, Docker Compose
-- Nginx (para servir o frontend)
+- Node.js, Express, Web3.js.
+- Ganache (Ethereum local).
+- MetaMask.
+- HTML, CSS, JavaScript.
+- Docker, Docker Compose.
+- Nginx (para servir o frontend).
 
 ---
 
