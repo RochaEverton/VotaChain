@@ -19,7 +19,7 @@ services:
     ports:
       - 80
 
-  - type: web
+  - type: worker
     name: ganache
     env: docker
     image: trufflesuite/ganache-cli
