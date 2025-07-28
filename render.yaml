@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: backend
+    env: docker
+    repo: https://github.com/SEU_USUARIO/SEU_REPOSITORIO
+    dockerfilePath: backend/Dockerfile
+    plan: free
+    branch: develop
+    ports:
+      - 3000
+
+  - type: web
+    name: frontend
+    env: docker
+    repo: https://github.com/SEU_USUARIO/SEU_REPOSITORIO
+    dockerfilePath: frontend/Dockerfile
+    plan: free
+    branch: develop
+    ports:
+      - 80
+
+  - type: web
+    name: ganache
+    env: docker
+    image: trufflesuite/ganache-cli
+    plan: free
+    command: ["--accounts", "10", "--defaultBalanceEther", "1000", "--deterministic"]
+    ports:
+      - 8545
