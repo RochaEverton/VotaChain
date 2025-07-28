@@ -1,6 +1,6 @@
 # Votachain
 Projeto de finalização da Pós Graduação em WEB3.0 pela faculdade Descomplica.<br>
-VotaChain é um projeto que simula a utilização da técnologia blockchain para criação de um sistema de votação digital transparente e seguro.<br>
+VotaChain é um projeto que simula a utilização da tecnologia blockchain para criação de um sistema de votação digital transparente e seguro.<br>
 O projeto permite que usuários votem de qualquer lugar usando carteiras digitais ex. MetaMask via navegador web.<br>
 
 ![Votachain](./shared/images/voto%20registrado.png)
