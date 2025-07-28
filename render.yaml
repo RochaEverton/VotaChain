@@ -17,7 +17,7 @@ services:
     branch: develop
     healthCheckPath: /
 
-  - type: worker
+  - type: web
     name: ganache
     env: docker
     repo: https://github.com/RochaEverton/VotaChain
